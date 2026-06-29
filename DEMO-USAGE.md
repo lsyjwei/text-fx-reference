@@ -17,7 +17,15 @@
 - `bloodsoaking` 依赖「标题后紧跟一段落」的 DOM 结构；React 需改成显式 class，不能靠 `~ *:nth-child(2)` 选择器
 - `-webkit-background-clip: text` 与现有 gradient 字效可合并，但动画较长（40s 循环），序章建议单次播放 + `animation-fill-mode: forwards`
 
-### 2. glitch-clip-rgb / text-glitch-exo（clip-path RGB glitch）
+### 2. glitch-noise-clip（载入行 · 已接入 Demo）
+
+**技法**：`data-text` 双伪元素 + `clip: rect()` 随机切片（`noise-anim`）+ 绿/紫 text-shadow 色差。
+
+**已用于**：序章最后一行 `.uo-load-line--glitch`（`urban-opening-fx.css`），shadow 已改为主题色（异变绿 + 血橙）。
+
+**相对 glitch-clip-rgb**：同一作者系 CodePen 变体，**一个 keyframe 表**驱动两层，更省 CSS；视觉上更「电视雪花条带」。
+
+### 3. glitch-clip-rgb / text-glitch-exo（clip-path RGB glitch · 备选）
 
 **技法**：主字 + `::before`/`::after` 复制 `data-text`，`clip: rect(...)` 关键帧 + 红/绿或红/紫 shadow 错位。
 
@@ -78,10 +86,10 @@
 
 ## 推荐落地顺序
 
-1. **bleeding** → 血字倒数底缘（最小 DOM 改动）
-2. **clip RGB glitch** → 载入行/高 distress 时替换 glitch 层
-3. **SVG knockout** → 副本名 beat 可选镜头（需 SVG 中文）
-4. spray glitch → 仅倒数 shatter 过渡（数字 only）
+1. **glitch-noise-clip** → 载入行（**已接入** `urban-opening-fx.css`）
+2. **bleeding** → 血字倒数底缘
+3. **SVG knockout** → 副本名 beat 可选镜头
+4. **spray glitch** → 仅倒数 shatter 过渡（数字 only）
 
 ## 许可
 
